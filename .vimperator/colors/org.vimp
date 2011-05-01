@@ -1,0 +1,44 @@
+" StatusLine & CmdLinet
+hi StatusLine color: #dcdcdc;  background: rgba(0,0,0,0.7); font-weight: normal; font-size: 10pt;
+hi CmdLine>* font-family: "Lucida Grande", "Segoe UI", monospace; font-size:13px; font-weight:bold; color:#dcdcdc; background-color: #000000;
+hi Normal color: LightYellow; background: rgba(51,51,51,0.7); font-size: 10pt;
+hi ModeMsg color: LightYellow; background: rgba(0,0,0,0.7); font-size: 10pt;
+hi CompItem[selected] color: #D64E80;  background: rgba(0,0,0,0.7);
+
+" Hint
+hi Hint font-family: monospace; font-size: 12px; font-weight: normal; color: lightyellow; background-color: black; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding: 0px 2px 0px 2px; 
+
+hi HintElem background-color: #E48AAB; color: black;
+hi HintActive background-color: #D64E80; color: white;
+
+style -name parsonas chrome://* <<EOM
+#main-window { background-repeat: repeat-y !important;}
+// #main-window { background-repeat: none !important;}
+#browser-bottombox { background-image: none !important; }
+#liberator-multiline-output, #liberator-completions { background: transparent !important; }
+EOM
+
+
+" ツリー型タブの背景を透過
+" 選択中のタブ
+" 選択されていないタブ
+style -name tab chrome://* <<EOM
+tabbrowser[treestyletab-style][treestyletab-mode]
+  .tabs-stack,
+tabbrowser[treestyletab-style][treestyletab-mode]
+  .tabbrowser-tabs,
+tabbrowser[treestyletab-style][treestyletab-tabbar-position]
+  .tabbrowser-tabs {
+  background: transparent !important;
+}
+.tabbrowser-tab[selected=true] { 
+  background-color: rgba(255, 255, 255, 0.4) !important; 
+  color: white !important; 
+  text-shadow: black 1px 1px 1px !important;
+}
+#content tab:not([selected]) {
+  background-color: rgba(255, 255, 255, 0.0) !important;
+  color: #e6e6e6  !important;
+}
+EOM
+
