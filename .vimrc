@@ -10,8 +10,16 @@ Bundle 'tpope/vim-rails'
 Bundle 'mattn/zencoding-vim'
 
 " カラースキーマ
-"colorscheme desert
+"if $COLORTERM == 'gnome-terminal'
+"  set term=screen-256color
+"  colorscheme railscasts
+"else
+  " colorscheme default
+"  colorscheme desert
+"endif
+
 colorscheme railscasts
+
 " vi互換をとらない（viの独自拡張のため）
 set nocompatible
 " ビープ音をならさない

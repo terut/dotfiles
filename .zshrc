@@ -136,6 +136,8 @@ alias df="df -h"
 
 alias su="su -l"
 
+alias tmux="tmux -2"
+
 ## terminal configuration
 #
 case "${TERM}" in
