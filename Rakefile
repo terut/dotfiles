@@ -10,6 +10,9 @@
 #  $ rake tmux[dev,~/Project/rails_sample]
 #  $ rake 'tmux[dev, ~/Project/rails_sample]'
 #
+# Reference:
+#  http://d.hatena.ne.jp/snufkon/20110104/1294157241
+#  thanks a lot!!
 
 desc 'ready tmux session for dev'
 task :tmux, 'session_name', 'root_dir'
