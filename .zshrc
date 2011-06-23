@@ -136,7 +136,12 @@ alias df="df -h"
 
 alias su="su -l"
 
+# tmux
 alias tmux="tmux -2"
+
+# rails
+alias rs="rails"
+alias be="bundle exec"
 
 ## terminal configuration
 #
