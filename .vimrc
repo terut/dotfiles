@@ -170,6 +170,8 @@ function MyTabLabel(n)
   return bufname(buflist[winnr - 1]) 
 endfunction
 
+autocmd BufNewFile,BufRead *.watchr set filetype=ruby
+
 " 対応する括弧の補完
 noremap { {}<LEFT>
 inoremap [ []<LEFT>
