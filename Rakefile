@@ -1,4 +1,4 @@
-# encodig: utf-8
+# codig: utf-8
 #
 # Explain:
 #  tmux for dev. create session and windows of tmux for rails application.

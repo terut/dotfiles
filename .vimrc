@@ -9,6 +9,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'thinca/vim-quickrun'
+Bundle 'tpope/vim-markdown'
 
 " カラースキーマ
 "if $COLORTERM == 'gnome-terminal'
@@ -201,6 +203,9 @@ function MyTabLabel(n)
 endfunction
 
 autocmd BufNewFile,BufRead *.watchr set filetype=ruby
+"autocmd BufNewFile,BufRead *mkd setfiletype mkd
+"autocmd BufNewFile,BufRead *md setfiletype mkd
+
 
 " 対応する括弧の補完
 noremap { {}<LEFT>
