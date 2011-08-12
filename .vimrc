@@ -202,6 +202,17 @@ function MyTabLabel(n)
   return bufname(buflist[winnr - 1]) 
 endfunction
 
+" magic comment
+function! MagicComment()
+  let magic_comment = "# coding: utf-8\n"
+  let pos = getpos(".")
+  call cursor(1,0)
+  execute ":normal i" . magic_comment
+  call setpos(".", pos)
+endfunction
+
+map <silent> ,mc :call MagicComment()<CR>
+
 autocmd BufNewFile,BufRead *.watchr set filetype=ruby
 "autocmd BufNewFile,BufRead *mkd setfiletype mkd
 "autocmd BufNewFile,BufRead *md setfiletype mkd
