@@ -11,6 +11,8 @@ Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-markdown'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'bbommarito/vim-slim'
 
 " カラースキーマ
 "if $COLORTERM == 'gnome-terminal'
