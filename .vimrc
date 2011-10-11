@@ -206,6 +206,8 @@ autocmd BufNewFile,BufRead *.watchr set filetype=ruby
 "autocmd BufNewFile,BufRead *mkd setfiletype mkd
 "autocmd BufNewFile,BufRead *md setfiletype mkd
 
+" 保存時に行末の空白を削除する
+"autocmd BufWritePre * :%s/\s\+$//ge
 
 " 対応する括弧の補完
 noremap { {}<LEFT>
