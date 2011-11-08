@@ -29,6 +29,8 @@ task :tmux do |t, args|
     sh "tmux neww -d -k -t #{session_name}:#{i} -n #{w}"
     sh "tmux send -t #{session_name}:#{i} '#{cmd}' C-m" if i > 1
   end
+
+  sh "tmux a -t #{session_name}"
 end
 
 def has_session?(name)
