@@ -41,7 +41,7 @@ set shiftwidth=2
 " タブの代わりに空白文字を挿入
 set expandtab
 " 新しい行のインデントを現在の行と同じにする
-" set autoindent
+set autoindent
 " set cindent
 " コマンド、検索パターンを100個まで履歴に残す
 set history=100
