@@ -13,6 +13,8 @@ Bundle 'thinca/vim-quickrun'
 Bundle 'tpope/vim-markdown'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'bbommarito/vim-slim'
+Bundle 'vim-scripts/sudo.vim'
+Bundle 'mattn/hahhah-vim'
 
 " カラースキーマ
 "if $COLORTERM == 'gnome-terminal'
@@ -77,6 +79,9 @@ set hlsearch
 set wildmenu
 " 入力されているテキストの最大幅（それ以上長くなると空白で改行）を無効
 set textwidth=0
+" 外部grepを使用する
+set grepformat=%f:%l:%m,%f:%l:%m,%f\ \ %l%m,%f
+set grepprg=grep\ -nh
 " 全角スペースの表示
 highlight StatusLine term=NONE cterm=NONE ctermfg=black ctermbg=gray
 
@@ -106,6 +111,8 @@ endif
   set statusline+=%V    " 画面上の何列目にカーソルがあるか
   set statusline+=\ \   " 空白スペース2個
   set statusline+=%P    " ファイル内の何％の位置にあるか
+  set statusline+=\ \   " 空白スペース2個
+  set statusline+=%{g:HahHah()}
 
 " バッファを切り替えてもundo可能
 set hidden
@@ -244,8 +251,19 @@ let g:neocomplcache_min_syntax_length = 3
 
 
 " unite.vim
+" 起動時にインサートモードで開始
+let g:unite_enable_start_insert = 1
+
+" インサート／ノーマルどちらからでも呼び出せるようにキーマップ
+nnoremap <silent> <C-f> :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+inoremap <silent> <C-f> <ESC>:<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+nnoremap <silent> <C-b> :<C-u>Unite buffer file_mru<CR>
+inoremap <silent> <C-b> <ESC>:<C-u>Unite buffer file_mru<CR>
+
 nnoremap <silent> ,uf :<C-u>Unite file<CR>
 nnoremap <silent> ,um :<C-u>Unite file_mru<CR>
 nnoremap <silent> ,ub :<C-u>Unite buffer<CR>
 nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>
 nnoremap <silent> ,uo :<C-u>Unite outline<CR>
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
