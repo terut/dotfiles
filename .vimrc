@@ -268,7 +268,7 @@ nnoremap <silent> ,uo :<C-u>Unite outline<CR>
 nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 
-nnoremap <silent> ,up :<C-u>call <SID>unite_project('-start-insert')<CR>
+nnoremap <silent> ,up :<C-u>call <SID>unite_project('-start-insert', '-default-action=tabopen')<CR>
 
 function! s:unite_project(...)
   let opts = (a:0 ? join(a:000, ' ') : '')
