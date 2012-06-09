@@ -21,7 +21,7 @@ task :tmux do |t, args|
   root_dir = args.root_dir
   
   windows = ['zsh', 'mysql', 'vim', 'rspec', 'console', 'server', 'git']
-
+  
   sh "tmux new -d -s #{session_name}" unless has_session?(session_name)
   
   cmd = "cd #{root_dir}"
@@ -38,4 +38,3 @@ def has_session?(name)
     return ok
   end
 end
-

@@ -2,6 +2,7 @@ set rtp+=~/.vim/vundle/
 call vundle#rc()
 
 Bundle 'terut/colorscheme'
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/unite.vim'
@@ -16,15 +17,21 @@ Bundle 'bbommarito/vim-slim'
 Bundle 'vim-scripts/sudo.vim'
 Bundle 'mattn/hahhah-vim'
 
+" カラーを有効化する
+syntax on
 " カラースキーマ
 "if $COLORTERM == 'gnome-terminal'
-"  set term=screen-256color
-"  colorscheme railscasts
+   "set term=screen-256color
+"  set t_Co=256
+"  set background=dark
+"  let g:solarized_termcolors=&t_Co
+"  let g:solarized_termtrans=1
+"  colorscheme solarized
 "else
   " colorscheme default
 "  colorscheme desert
+"  colorscheme railscasts
 "endif
-
 colorscheme railscasts
 
 " vi互換をとらない（viの独自拡張のため）
@@ -69,8 +76,6 @@ set laststatus=2
 set showmatch
 " 対応するカッコの表示時間を2にする
 set matchtime=2
-" カラーを有効化する
-syntax on
 " 検索結果文字列のハイライトを有効にする
 set hlsearch
 " コメントの色を変更
@@ -230,16 +235,16 @@ autocmd BufNewFile,BufRead *.watchr set filetype=ruby
 "autocmd BufWritePre * :%s/\s\+$//ge
 
 " 対応する括弧の補完
-noremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap ( ()<LEFT>
+"noremap { {}<LEFT>
+"inoremap [ []<LEFT>
+"jinoremap ( ()<LEFT>
 " inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
+"inoremap ' ''<LEFT>
+"vnoremap { "zdi^V{<C-R>z}<ESC>
+"vnoremap [ "zdi^V[<C-R>z]<ESC>
+"vnoremap ( "zdi^V(<C-R>z)<ESC>
 " vnoremap " "zdi^V"<C-R>z^V"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
+"vnoremap ' "zdi'<C-R>z'<ESC>
 
 
 " neocomplcache
