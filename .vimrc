@@ -1,41 +1,55 @@
-set rtp+=~/.vim/vundle/
-call vundle#rc()
+" vi互換をとらない（viの独自拡張のため）
+set nocompatible
+filetype off
 
-Bundle 'terut/colorscheme'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/unite.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-rails'
-Bundle 'mattn/zencoding-vim'
-Bundle 'tpope/vim-fugitive'
-Bundle 'thinca/vim-quickrun'
-Bundle 'tpope/vim-markdown'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'bbommarito/vim-slim'
-Bundle 'vim-scripts/sudo.vim'
-Bundle 'mattn/hahhah-vim'
+if has('vim_starting')
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" カラーを有効化する
-syntax on
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+
+NeoBundle 'terut/colorscheme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'bbommarito/vim-slim'
+NeoBundle 'vim-scripts/sudo.vim'
+NeoBundle 'mattn/hahhah-vim'
+NeoBundle 'vim-scripts/Align'
+
+if neobundle#exists_not_installed_bundles()
+  echomsg 'Not installed bundles : ' .
+        \ string(neobundle#get_not_installed_bundle_names())
+  echomsg 'Please execute ":NeoBundleInstall" command.'
+endif
+
 " カラースキーマ
 "if $COLORTERM == 'gnome-terminal'
-   "set term=screen-256color
-"  set t_Co=256
-"  set background=dark
-"  let g:solarized_termcolors=&t_Co
-"  let g:solarized_termtrans=1
-"  colorscheme solarized
+"  set term=screen-256color
+"  colorscheme railscasts
 "else
   " colorscheme default
 "  colorscheme desert
-"  colorscheme railscasts
 "endif
+
+" カラーを有効化する
+syntax on
+ "let g:solarized_termcolors=&t_Co
+ "set background=dark
+ "colorscheme solarized
 colorscheme railscasts
 
-" vi互換をとらない（viの独自拡張のため）
-set nocompatible
 " ビープ音をならさない
 set vb t_vb=
 " バックスペースで削除できるものを指定
@@ -122,9 +136,7 @@ endif
 " バッファを切り替えてもundo可能
 set hidden
 " ファイルタイプ別インデント&プラグインを有効化する
-filetype on
-filetype indent on
-filetype plugin on
+filetype plugin indent on
 
 " 文字コードの設定
 " fileencodingsの設定ではencodingの値を一番最後に記述する
@@ -213,7 +225,7 @@ endfunction
 function MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
-  return bufname(buflist[winnr - 1]) 
+  return pathshorten(bufname(buflist[winnr - 1]))
 endfunction
 
 " magic comment
@@ -235,16 +247,16 @@ autocmd BufNewFile,BufRead *.watchr set filetype=ruby
 "autocmd BufWritePre * :%s/\s\+$//ge
 
 " 対応する括弧の補完
-"noremap { {}<LEFT>
-"inoremap [ []<LEFT>
-"jinoremap ( ()<LEFT>
+noremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
 " inoremap " ""<LEFT>
-"inoremap ' ''<LEFT>
-"vnoremap { "zdi^V{<C-R>z}<ESC>
-"vnoremap [ "zdi^V[<C-R>z]<ESC>
-"vnoremap ( "zdi^V(<C-R>z)<ESC>
+inoremap ' ''<LEFT>
+vnoremap { "zdi^V{<C-R>z}<ESC>
+vnoremap [ "zdi^V[<C-R>z]<ESC>
+vnoremap ( "zdi^V(<C-R>z)<ESC>
 " vnoremap " "zdi^V"<C-R>z^V"<ESC>
-"vnoremap ' "zdi'<C-R>z'<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
 
 
 " neocomplcache
@@ -280,3 +292,10 @@ function! s:unite_project(...)
   let dir = unite#util#path2project_directory(expand('%'))
   execute 'Unite' opts 'file_rec:' . dir
 endfunction
+
+
+" vim-php-debugger
+" KeyBind
+nnoremap ,bj <F3>
+nnoremap ,bl <F2>
+nnoremap ,b; <F4>
