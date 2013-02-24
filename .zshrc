@@ -34,6 +34,7 @@ esac
 
 # display git branch at right side
 # 
+setopt transient_rprompt
 setopt prompt_subst
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' actionformats \

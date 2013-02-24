@@ -12,6 +12,7 @@ NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 
 NeoBundle 'terut/colorscheme'
+NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'Shougo/neocomplcache'
