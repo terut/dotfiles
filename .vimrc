@@ -24,7 +24,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'bbommarito/vim-slim'
+NeoBundle 'slim-template/vim-slim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'mattn/hahhah-vim'
 NeoBundle 'vim-scripts/Align'
@@ -36,20 +36,21 @@ if neobundle#exists_not_installed_bundles()
 endif
 
 " カラースキーマ
-"if $COLORTERM == 'gnome-terminal'
-"  set term=screen-256color
-"  colorscheme railscasts
-"else
-  " colorscheme default
-"  colorscheme desert
-"endif
+if $COLORTERM == 'gnome-terminal'
+  "set term=screen-256color
+  set t_Co=256
+  colorscheme railscasts
+else
+  "colorscheme default
+  colorscheme desert
+endif
 
 " カラーを有効化する
 syntax on
  "let g:solarized_termcolors=&t_Co
  "set background=dark
  "colorscheme solarized
-colorscheme railscasts
+"colorscheme railscasts
 
 " ビープ音をならさない
 set vb t_vb=
@@ -132,7 +133,7 @@ endif
   set statusline+=\ \   " 空白スペース2個
   set statusline+=%P    " ファイル内の何％の位置にあるか
   set statusline+=\ \   " 空白スペース2個
-  set statusline+=%{g:HahHah()}
+  set statusline+=%{hahhah#get_text()}
 
 " バッファを切り替えてもundo可能
 set hidden
