@@ -15,6 +15,19 @@ esac
 #
 # set prompt
 #
+mycolSt=$'\e[0;'
+mycolEd=$'\e[m'
+
+typeset -A mycol
+mycol=(
+  'PINK' '38;5;218m'
+)
+
+typeset -A mycolbg
+mycolbg=(
+  'PINK' '48;5;218m'
+)
+
 autoload colors
 colors
 case ${UID} in
@@ -24,8 +37,11 @@ case ${UID} in
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+    #PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
+    PROMPT="%{${mycolSt}${mycol[PINK]}%}%/%%%{${mycolEd}%}%{${reset_color}%} "
+    #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
+    #SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
     [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
         PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
@@ -165,6 +181,10 @@ alias tmux="tmux -2"
 # rails
 alias rs="rails"
 alias be="bundle exec"
+
+# grep
+export GREP_COLOR='01;33'
+export GREP_OPTIONS='--color=auto'
 
 ## terminal configuration
 #
