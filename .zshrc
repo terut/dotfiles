@@ -18,8 +18,10 @@ typeset -U path cdpath fpath manpath
 #
 # set prompt
 #
-local mypromptSt=$'\xe2\x94\x8c\xe2\x94\x80'
-local mypromptEd=$'\xe2\x94\x94\xe2\x94\x80'
+#local mypromptSt=$'\xe2\x94\x8c\xe2\x94\x80'
+local mypromptSt='\(^o^)/'
+#local mypromptEd=$'\xe2\x94\x94\xe2\x94\x80'
+local mypromptEd=''
 local mycolSt=$'\e[0;'
 local mycolEd=$'\e[m'
 
@@ -46,7 +48,7 @@ case ${UID} in
 *)
     #PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
     PROMPT="%{${mycolSt}${mycol[PURPLE]}%}%/%%%{${mycolEd}%}%{${reset_color}%} "
-    #PROMPT="%{${mycolSt}${mycol[PURPLE]}${mypromptSt}%}[%n@%m:%~]"$'\n'"%{${mypromptEd%}%}$%{${mycolEd}${reset_color}%} "
+    #PROMPT="%{${mycolSt}${mycol[PURPLE]}${mypromptSt}%} [%n@%m:%~] "$'\n'"$%{${mycolEd}${reset_color}%} "
     #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     PROMPT2="%{${mycolSt}${mycol[PURPLE]}%}%_%%%{${mycolEd}%}%{${reset_color}%} "
     #SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
