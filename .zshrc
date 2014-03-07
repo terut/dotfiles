@@ -29,12 +29,16 @@ typeset -A mycol
 mycol=(
   'PINK' '38;5;218m'
   'PURPLE' '38;5;126m'
+  'GREEN' '38;5;107m'
+  'RED' '38;5;168m'
 )
 
 typeset -A mycolbg
 mycolbg=(
   'PINK' '48;5;218m'
   'PURPLE' '48;5;126m'
+  'GREEN' '48;5;107m'
+  'RED' '48;5;88m'
 )
 
 autoload colors
@@ -47,8 +51,9 @@ case ${UID} in
     ;;
 *)
     #PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-    PROMPT="%{${mycolSt}${mycol[PURPLE]}%}%/%%%{${mycolEd}%}%{${reset_color}%} "
+    #PROMPT="%{${mycolSt}${mycol[PURPLE]}%}%/%%%{${mycolEd}%}%{${reset_color}%} "
     #PROMPT="%{${mycolSt}${mycol[PURPLE]}${mypromptSt}%} [%n@%m: %~] "$'\n'"$%{${mycolEd}${reset_color}%} "
+    PROMPT="%{${mycolSt}%}%(?.%{${mycol[GREEN]}%}\(^o^%)/.%{${mycol[RED]}%}/(^o^%)\)%{${mycolEd}%}%{${mycolSt}${mycol[PURPLE]}%} [%n@%m: %~] %{${mycolEd}%}"$'\n'"%{${mycolSt}${mycol[PURPLE]}%}$%{${mycolEd}${reset_color}%} "
     #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
     PROMPT2="%{${mycolSt}${mycol[PURPLE]}%}%_%%%{${mycolEd}%}%{${reset_color}%} "
     #SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
