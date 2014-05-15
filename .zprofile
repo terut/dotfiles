@@ -2,5 +2,7 @@
 
 EDITOR="vim"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
+export GOROOT=$HOME/.go
+export GOPATH=$GOROOT/1.2.2
+export PATH="$HOME/.rbenv/bin:$PATH:$GOPATH/bin"
 eval "$(rbenv init -)"

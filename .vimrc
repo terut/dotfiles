@@ -140,6 +140,11 @@ set hidden
 " ファイルタイプ別インデント&プラグインを有効化する
 filetype plugin indent on
 
+" golang
+set rtp+=/usr/share/go/misc/vim
+exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+
 " 文字コードの設定
 " fileencodingsの設定ではencodingの値を一番最後に記述する
 " set encoding=utf-8
