@@ -56,6 +56,8 @@ if $COLORTERM == 'gnome-terminal'
   "set term=screen-256color
   set t_Co=256
   colorscheme railscasts
+elseif os == 'mac'
+  colorscheme railscasts
 else
   "colorscheme default
   colorscheme desert
@@ -156,7 +158,7 @@ set hidden
 " golang
 if os == 'mac'
   set rtp+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
-elseif
+else
   set rtp+=/usr/share/go/misc/vim
 endif
 
