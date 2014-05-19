@@ -11,6 +11,15 @@ case ${UID} in
     ;;
 esac
 
+case ${OSTYPE} in
+    darwin*)
+        # mac settings
+        ;;
+    linux*)
+        # linux settings
+        ;;
+esac
+
 ## remove same path
 typeset -U path cdpath fpath manpath
 

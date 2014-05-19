@@ -19,7 +19,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-markdown'
@@ -28,12 +28,28 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'vim-scripts/sudo.vim'
 NeoBundle 'mattn/hahhah-vim'
 NeoBundle 'vim-scripts/Align'
+NeoBundle 'elzr/vim-json'
 
 if neobundle#exists_not_installed_bundles()
   echomsg 'Not installed bundles : ' .
         \ string(neobundle#get_not_installed_bundle_names())
   echomsg 'Please execute ":NeoBundleInstall" command.'
 endif
+
+function! GetRunningOS()
+  if has("win32")
+    return "win"
+  endif
+  if has("unix")
+    if system('uname')=~'Darwin'
+      return "mac"
+    else
+      return "linux"
+    endif
+  endif
+endfunction
+
+let os=GetRunningOS()
 
 " カラースキーマ
 if $COLORTERM == 'gnome-terminal'
@@ -45,8 +61,6 @@ else
   colorscheme desert
 endif
 
-" カラーを有効化する
-syntax on
 "let g:solarized_termcolors=&t_Co
 "set background=dark
 "colorscheme solarized
@@ -137,13 +151,32 @@ endif
 
 " バッファを切り替えてもundo可能
 set hidden
+
+" ### 言語別設定
+" golang
+if os == 'mac'
+  set rtp+=/usr/local/Cellar/go/1.2.2/libexec/misc/vim
+elseif
+  set rtp+=/usr/share/go/misc/vim
+endif
+
+" filetype=go が設定された時に呼ばれる関数
+"Vim で Go の設定を行う場合はこの関数内で記述する
+function! s:golang()
+  exe "setlocal rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
+  setlocal completeopt=menu,preview
+endfunction
+
+augroup vimrc-golang
+  autocmd!
+  " filetype=go が設定された場合に関数を呼ぶ
+  autocmd FileType go call s:golang()
+augroup END
+
+" カラーを有効化する
+syntax on
 " ファイルタイプ別インデント&プラグインを有効化する
 filetype plugin indent on
-
-" golang
-set rtp+=/usr/share/go/misc/vim
-exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-set completeopt=menu,preview
 
 " 文字コードの設定
 " fileencodingsの設定ではencodingの値を一番最後に記述する
@@ -390,9 +423,4 @@ function! s:unite_project(...)
   execute 'Unite' opts 'file_rec:' . dir
 endfunction
 
-
-" vim-php-debugger
-" KeyBind
-nnoremap ,bj <F3>
-nnoremap ,bl <F2>
-nnoremap ,b; <F4>
+"autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby

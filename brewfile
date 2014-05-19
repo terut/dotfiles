@@ -1,0 +1,51 @@
+tap phinze/homebrew-cask
+tap homebrew/versions
+
+update
+upgrade
+
+install brew-cask
+install boost
+install freetype
+install imagemagick
+install libevent
+install little-cms
+install nkf
+install pkg-config
+install scons
+install zsh
+install cmake
+install gdbm
+install jasper
+install libpng
+install lzo
+install openssl
+install qt
+install texi2html
+install x264
+install faac
+install git-flow
+install jpeg
+install libtiff
+install mongodb
+install pcre
+install readline
+install tmux
+install xvid
+install ffmpeg
+install hub
+install lame
+install libtool
+install mysql
+install pidof
+install redis
+install wget
+install yasm
+install npm
+install go
+install icu4c
+link icu4c
+
+cask install xquartz
+
+install gifsicle
