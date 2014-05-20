@@ -43,6 +43,7 @@ install wget
 install yasm
 install npm
 install go
+install watch
 install icu4c
 link icu4c
 

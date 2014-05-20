@@ -1,4 +1,6 @@
 #export PATH=$PATH:/usr/local/mysql/bin
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="1;36"
 
 EDITOR="vim"
 
