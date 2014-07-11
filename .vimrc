@@ -10,11 +10,14 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-let g:make = 'gmake'
-if system('uname -o') =~ '^GNU/'
-  let g:make = 'make'
-endif
-NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': g:make}}
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 
 NeoBundle 'Shougo/neocomplcache.vim'
 NeoBundle 'Shougo/neosnippet.vim'
