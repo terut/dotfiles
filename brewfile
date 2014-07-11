@@ -1,4 +1,4 @@
-tap phinze/homebrew-cask
+tap caskroom/homebrew-cask
 tap homebrew/versions
 
 update
@@ -40,9 +40,10 @@ install mysql
 install pidof
 install redis
 install wget
+install ngrok
 install yasm
 install npm
-install go
+install go --cross-compile-all
 install watch
 install icu4c
 link icu4c
