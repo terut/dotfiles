@@ -45,6 +45,8 @@ install yasm
 install npm
 install go --cross-compile-all
 install watch
+install jq
+install direnv
 install icu4c
 link icu4c
 
