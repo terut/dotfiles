@@ -62,7 +62,7 @@ endfunction
 let os=GetRunningOS()
 
 " カラースキーマ
-if $COLORTERM == 'gnome-terminal'
+if os == 'linux'
   "set term=screen-256color
   set t_Co=256
   colorscheme railscasts
