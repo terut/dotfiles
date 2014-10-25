@@ -294,6 +294,7 @@ map <silent> ,mc :call MagicComment()<CR>
 autocmd BufNewFile,BufRead *.watchr set filetype=ruby
 "autocmd BufNewFile,BufRead *mkd setfiletype mkd
 "autocmd BufNewFile,BufRead *md setfiletype mkd
+autocmd BufNewFile,BufRead *cnf setfiletype conf
 
 " 保存時に行末の空白を削除する
 "autocmd BufWritePre * :%s/\s\+$//ge
