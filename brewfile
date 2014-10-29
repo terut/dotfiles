@@ -1,5 +1,6 @@
 tap caskroom/homebrew-cask
 tap homebrew/versions
+tap peco/peco
 
 update
 upgrade
@@ -44,6 +45,7 @@ install ngrok
 install yasm
 install npm
 install go --cross-compile-all
+install peco
 install watch
 install jq
 install direnv
