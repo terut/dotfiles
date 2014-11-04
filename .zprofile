@@ -9,6 +9,34 @@ case ${OSTYPE} in
     ;;
 esac
 
+export GREP_OPTIONS="--color=auto"
+export GREP_COLOR="1;36"
+
+EDITOR="vim"
+
+## golang
+if type go >/dev/null 2>&1; then
+  export GOPATH="$HOME/Develop/enhancements"
+  export PATH="$GOPATH/bin:$PATH"
+fi
+## direnv
+#if [ -x "`which direnv 2>/dev/null`" ]; then
+if type direnv >/dev/null 2>&1; then
+  eval "$(direnv hook $0)"
+fi
+## rbenv
+if [ -e $HOME/.rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+## ndenv
+if [ -e $HOME/.ndenv ]; then
+  export PATH="$HOME/.ndenv/bin:$PATH"
+  eval "$(ndenv init -)"
+fi
+#source /Users/terut/.pythonbrew/etc/bashrc
+export AWS_CONFIG_FILE=~/.aws/config
+
 ## peco
 function peco-src() {
     local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
@@ -56,38 +84,10 @@ function bundle() {
         if [ "$2" ]; then
             gem=$2
         else
-            gem=$($_orig_bundle list | awk '{ print $2 }' | percol)
+            gem=$($_orig_bundle list | awk '{ print $2 }' | peco)
         fi
         cd $($_orig_bundle show $gem)
     else
         $_orig_bundle $*
     fi
 }
-
-export GREP_OPTIONS="--color=auto"
-export GREP_COLOR="1;36"
-
-EDITOR="vim"
-
-## golang
-if type go >/dev/null 2>&1; then
-  export GOPATH="$HOME/Develop/enhancements"
-  export PATH="$GOPATH/bin:$PATH"
-fi
-## direnv
-#if [ -x "`which direnv 2>/dev/null`" ]; then
-if type direnv >/dev/null 2>&1; then
-  eval "$(direnv hook $0)"
-fi
-## rbenv
-if [ -e $HOME/.rbenv ]; then
-  export PATH="$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-## ndenv
-if [ -e $HOME/.ndenv ]; then
-  export PATH="$HOME/.ndenv/bin:$PATH"
-  eval "$(ndenv init -)"
-fi
-#source /Users/terut/.pythonbrew/etc/bashrc
-export AWS_CONFIG_FILE=~/.aws/config
