@@ -65,6 +65,15 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^h' peco-select-history
 
+function peco-pkill() {
+    for pid in `ps aux | peco | awk '{ print $2 }'`
+    do
+        kill $pid
+        echo "Killed ${pid}"
+    done
+}
+alias pk="peco-pkill"
+
 #function peco-cdr() {
 #    local selected_dir=$(cdr -l | awk '{ print $2 }' | peco)
 #    if [ -n "$selected_dir" ]; then
