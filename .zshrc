@@ -142,6 +142,8 @@ HISTFILE=${HOME}/.zsh_history
 HISTSIZE=50000
 SAVEHIST=50000
 setopt hist_ignore_dups     # ignore duplication command history list
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
 setopt share_history        # share command history data
 setopt hist_ignore_space
 
