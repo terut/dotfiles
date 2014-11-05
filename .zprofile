@@ -16,7 +16,7 @@ EDITOR="vim"
 
 ## golang
 if type go >/dev/null 2>&1; then
-  export GOPATH="$HOME/Develop/enhancements"
+  export GOPATH="$HOME/Develop/local"
   export PATH="$GOPATH/bin:$PATH"
 fi
 ## direnv
