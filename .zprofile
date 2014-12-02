@@ -9,7 +9,7 @@ case ${OSTYPE} in
     ;;
 esac
 
-export GREP_OPTIONS="--color=auto"
+## grep
 export GREP_COLOR="1;36"
 
 EDITOR="vim"
