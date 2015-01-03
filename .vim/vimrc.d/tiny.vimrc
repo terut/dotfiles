@@ -92,3 +92,24 @@ endif
 syntax on
 " ファイルタイプ別インデント&プラグインを有効化する
 filetype plugin indent on
+
+" カラースキーマ
+if os == 'linux'
+  "set term=screen-256color
+  set t_Co=256
+  colorscheme railscasts
+elseif os == 'mac'
+  colorscheme railscasts
+else
+  "colorscheme default
+  colorscheme desert
+endif
+
+hi Pmenu ctermbg=7
+hi PmenuSel ctermbg=225
+hi PmenuSbar ctermbg=0
+
+"let g:solarized_termcolors=&t_Co
+"set background=dark
+"colorscheme solarized
+"colorscheme railscasts
