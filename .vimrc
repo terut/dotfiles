@@ -14,7 +14,7 @@ endfunction
 let os=GetRunningOS()
 
 " runtimepath
-set rtp+=$HOME/.vim
+set rtp+=~/.vim
 runtime! vimrc.d/*.vimrc
 
 " 文字コードの設定
@@ -106,10 +106,6 @@ function MyTabLabel(n)
   let winnr = tabpagewinnr(a:n)
   return pathshorten(bufname(buflist[winnr - 1]))
 endfunction
-
-hi Pmenu ctermbg=7
-hi PmenuSel ctermbg=225
-hi PmenuSbar ctermbg=0
 
 "autocmd BufNewFile,BufRead *mkd setfiletype mkd
 "autocmd BufNewFile,BufRead *md setfiletype mkd

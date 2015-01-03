@@ -92,3 +92,7 @@ endif
 syntax on
 " ファイルタイプ別インデント&プラグインを有効化する
 filetype plugin indent on
+
+hi Pmenu ctermbg=7
+hi PmenuSel ctermbg=225
+hi PmenuSbar ctermbg=0
