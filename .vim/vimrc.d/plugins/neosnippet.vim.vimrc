@@ -1,0 +1,1 @@
+NeoBundle 'Shougo/neosnippet.vim'

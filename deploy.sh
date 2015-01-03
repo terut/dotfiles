@@ -15,3 +15,5 @@ do
     ln -is "$PWD/$dotfile" $HOME
     # fi
 done
+
+# .gemrc, .irbrc, .tmux.conf, .tmux.ext, .vimrc, .zprofile, .zshenv, .zshrc
