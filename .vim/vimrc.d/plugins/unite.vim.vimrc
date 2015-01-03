@@ -1,3 +1,5 @@
+NeoBundle 'Shougo/unite.vim'
+
 " unite.vim
 " 起動時にインサートモードで開始
 let g:unite_enable_start_insert = 1
