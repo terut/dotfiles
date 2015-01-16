@@ -14,8 +14,10 @@ endfunction
 let os=GetRunningOS()
 
 " runtimepath
-set rtp+=~/.vim
-runtime! vimrc.d/*.vimrc
+"set rtp+=~/.vim
+"runtime! vimrc.d/*.vimrc
+source ~/.vim/vimrc.d/plugins.vimrc
+source ~/.vim/vimrc.d/tiny.vimrc
 
 " 文字コードの設定
 " fileencodingsの設定ではencodingの値を一番最後に記述する
