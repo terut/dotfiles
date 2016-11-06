@@ -34,6 +34,13 @@ if [ -e $HOME/.ndenv ]; then
   export PATH="$HOME/.ndenv/bin:$PATH"
   eval "$(ndenv init -)"
 fi
+## pyenv
+if [ -e $HOME/.pyenv ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 #source /Users/terut/.pythonbrew/etc/bashrc
 export AWS_CONFIG_FILE=~/.aws/config
 
