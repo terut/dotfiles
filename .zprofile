@@ -41,6 +41,11 @@ if [ -e $HOME/.pyenv ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+## flutter
+if [ -e $HOME/.flutter ]; then
+  export PATH="$HOME/.flutter/bin:$PATH"
+fi
+
 #source /Users/terut/.pythonbrew/etc/bashrc
 export AWS_CONFIG_FILE=~/.aws/config
 
