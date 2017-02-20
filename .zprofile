@@ -119,9 +119,3 @@ function bundle() {
         $_orig_bundle $*
     fi
 }
-
-timer() {
-	local N=$1; shift
-	(sleep $N && notify-send "Time's Up" "${*:-Bing}" --icon=face-wink) &
-	echo "timer set for $N"
-}

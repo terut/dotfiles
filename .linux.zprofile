@@ -30,3 +30,9 @@ route () {
   net_tools_deprecated_message
   echo 'Use `ip r`'
 }
+
+timer() {
+	local N=$1; shift
+	(sleep $N && notify-send "Time's Up" "${*:-Bing}" --icon=face-wink) &
+	echo "timer set for $N"
+}
