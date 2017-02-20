@@ -29,6 +29,13 @@ if [ -e $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+## pyenv
+if [ -e $HOME/.pyenv ]; then
+	export PYENV_ROOT="$HOME/.pyenv"
+	export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
+fi
 ## ndenv
 if [ -e $HOME/.ndenv ]; then
   export PATH="$HOME/.ndenv/bin:$PATH"
@@ -111,4 +118,10 @@ function bundle() {
     else
         $_orig_bundle $*
     fi
+}
+
+timer() {
+	local N=$1; shift
+	(sleep $N && notify-send "Time's Up" "${*:-Bing}" --icon=face-wink) &
+	echo "timer set for $N"
 }
