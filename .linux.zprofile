@@ -36,3 +36,9 @@ timer() {
 	(sleep $N && notify-send "Time's Up" "${*:-Bing}" --icon=face-wink) &
 	echo "timer set for $N"
 }
+## flutter
+if [ -e $HOME/.android-sdk ]; then
+  export ANDROID_HOME="$HOME/.android-sdk"
+  export PATH="$ANDROID_HOME/platform-tools:$PATH"
+  export PATH="$ANDROID_HOME/tools:$PATH"
+fi
