@@ -1,1 +1,0 @@
-NeoBundle 'mattn/emmet-vim'

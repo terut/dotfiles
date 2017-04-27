@@ -1,1 +1,0 @@
-NeoBundle 'elzr/vim-json'

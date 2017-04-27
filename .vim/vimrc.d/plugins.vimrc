@@ -1,23 +1,19 @@
-if !1 | finish | endif
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.vim/bundles/dein.vim
 
-if has('vim_starting')
-  if &compatible
-    " vi互換をとらない（viの独自拡張のため）
-    set nocompatible
-  end
+if dein#load_state(expand('~/.vim/bundles/dein.vim'))
+  call dein#begin(expand('~/.vim/bundles/dein.vim'))
 
-  " runtimepath
-  set rtp+=~/.vim/bundle/neobundle.vim/
+  call dein#add('vim-ruby/vim-ruby')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rails')
+  call dein#add('vim-scripts/sudo.vim')
+  call dein#add('terut/colorscheme')
+  call dein#end()
+  call dein#save_state()
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-runtime! vimrc.d/plugins/*.vimrc
-
-call neobundle#end()
-
 filetype plugin indent on
-
-NeoBundleCheck
+syntax enable

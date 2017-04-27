@@ -86,7 +86,6 @@ endif
   set statusline+=\ \   " 空白スペース2個
   set statusline+=%P    " ファイル内の何％の位置にあるか
   set statusline+=\ \   " 空白スペース2個
-  set statusline+=%{hahhah#get_text()}
 
 " カラーを有効化する
 syntax on
