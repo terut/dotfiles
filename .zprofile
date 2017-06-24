@@ -14,15 +14,19 @@ export GREP_COLOR="1;36"
 
 EDITOR="vim"
 
-## golang
-if type go >/dev/null 2>&1; then
-  export GOPATH="$HOME/Develop/local"
-  export PATH="$GOPATH/bin:$PATH"
-fi
 ## direnv
 #if [ -x "`which direnv 2>/dev/null`" ]; then
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook $0)"
+fi
+## golang
+if [ -e $HOME/.goenv ]; then
+  export GOENV_ROOT="$HOME/.goenv"
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  eval "$(goenv init -)"
+
+  export GOPATH="$HOME/Develop/go"
+  export PATH="$GOPATH/bin:$PATH"
 fi
 ## rbenv
 if [ -e $HOME/.rbenv ]; then
