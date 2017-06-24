@@ -129,3 +129,5 @@ vnoremap ( "zdi^V(<C-R>z)<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
 "autocmd BufNewFile,BufRead Gemfile setlocal filetype=ruby
+
+command! -nargs=1 -complete=file Rename f <args>|call delete(expand('#'))
