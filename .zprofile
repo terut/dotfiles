@@ -55,6 +55,11 @@ if [ -e $HOME/.pyenv ]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
+## qt
+if [ -e $HOME/.qt ]; then
+  export QT_VERSION="5.8.0"
+  export QT_DIR="$HOME/.qt"
+fi
 ## flutter
 if [ -e $HOME/.flutter ]; then
   export PATH="$HOME/.flutter/bin:$PATH"
