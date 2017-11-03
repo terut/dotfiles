@@ -23,7 +23,7 @@ DEPLOY_TO=$HOME
 #DEPLOY_TO=$PWD
 
 ## deploy minimum files.
-DOTFILES=('.gemrc' '.irbrc' '.tmux.conf' '.tmux.ext' '.vim' '.vimrc' '.zprofile' '.zshrc')
+DOTFILES=('.gemrc' '.irbrc' '.tmux.conf' '.tmux.ext' '.vim' '.vimrc' '.zprofile' '.zshrc' '.zshenv' '.gitconfig')
 
 if [ "$OS" == "Linux" ]; then
   DOTFILES+=('.config/devilspie2')
