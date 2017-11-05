@@ -62,3 +62,8 @@ let g:python_host_prog = $PYENV_ROOT . '/shims/python2'
 filetype plugin indent on
 syntax enable
 colorscheme onedark
+
+" tab stop
+set tabstop=2
+" disable scratch baffer for omni
+set completeopt-=preview
