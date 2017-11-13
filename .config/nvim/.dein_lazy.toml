@@ -48,3 +48,38 @@ hook_source = '''
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'
 on_i = 1
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_cmd = 'Denite'
+if = 'has("nvim")'
+hook_source = '''
+  " Use rg for file_rec and grep
+  if executable('rg')
+    call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+    call denite#custom#var('grep', 'command', ['rg'])
+  endif
+
+  " Search files
+	nnoremap <silent> <C-b><C-f> :<C-u>Denite file_rec<CR>
+	nnoremap <silent> <C-b><C-g> :<C-u>Denite grep<CR>
+
+	" Ignore files
+	call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
+  call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      \ [
+      \ '.git/', 'build/', '__pycache__/',
+			\ 'vendor/',
+      \ 'images/', '*.o', '*.make',
+      \ '*.min.*',
+      \ 'img/', 'fonts/'])
+
+  " keymap for moving on denite#insert
+  call denite#custom#map('insert', "<C-j>", '<denite:move_to_next_line>')
+  call denite#custom#map('insert', "<C-k>", '<denite:move_to_previous_line>')
+
+  " keymap for tabopen and vsplit
+  call denite#custom#map('insert', "<C-t>", '<denite:do_action:tabopen>')
+  call denite#custom#map('insert', "<C-s>", '<denite:do_action:split>')
+  call denite#custom#map('normal', "s", '<denite:do_action:split>')
+'''
