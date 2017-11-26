@@ -61,8 +61,8 @@ hook_source = '''
   endif
 
   " Search files
-	nnoremap <silent> <C-b><C-f> :<C-u>Denite file_rec<CR>
-	nnoremap <silent> <C-b><C-g> :<C-u>Denite grep<CR>
+	nnoremap <silent> <C-e><C-f> :<C-u>Denite file_rec<CR>
+	nnoremap <silent> <C-e><C-g> :<C-u>Denite grep<CR>
 
 	" Ignore files
 	call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_ignore_globs'])
