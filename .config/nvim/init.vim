@@ -65,5 +65,8 @@ colorscheme onedark
 
 " tab stop
 set tabstop=2
+set shiftwidth=2
+set expandtab
+set smartindent
 " disable scratch baffer for omni
 set completeopt-=preview
