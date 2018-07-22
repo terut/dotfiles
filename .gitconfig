@@ -2,9 +2,9 @@
 	name = terut
 	email = terut.dev+github@gmail.com
 [core]
-	editor = vim
+	editor = nvim
 [ghq]
-  #root = ~/.ghq
-  #root = ~/.go/src
+	#root = ~/.ghq
+	#root = ~/.go/src
 	root = ~/Develop/projects
 	root = ~/Develop/go/src
