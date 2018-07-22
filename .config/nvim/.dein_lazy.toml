@@ -66,7 +66,7 @@ hook_source = '''
   call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
       \ [
       \ '.git/', 'build/', '__pycache__/',
-			\ 'vendor/',
+      \ 'vendor/', 'node_modules/',
       \ 'images/', '*.o', '*.make',
       \ '*.min.*',
       \ 'img/', 'fonts/'])

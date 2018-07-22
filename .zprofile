@@ -56,6 +56,15 @@ fi
 if [ -e $HOME/.flutter ]; then
   export PATH="$HOME/.flutter/bin:$PATH"
 fi
+## google cloud sdk
+if [ -e $HOME/.google-cloud-sdk ]; then
+  source $HOME/.google-cloud-sdk/path.zsh.inc
+  source $HOME/.google-cloud-sdk/completion.zsh.inc
+fi
+## tfenv
+if [ -e $HOME/.tfenv ]; then
+  export PATH="$HOME/.tfenv/bin:$PATH"
+fi
 
 #source /Users/terut/.pythonbrew/etc/bashrc
 export AWS_CONFIG_FILE=~/.aws/config
