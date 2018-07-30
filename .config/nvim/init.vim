@@ -4,14 +4,14 @@ function! GetRunningOS()
   endif
   if has("unix")
     if system('uname')=~'Darwin'
-      return "mac"
+      return "osx"
     else
       return "linux"
     endif
   endif
 endfunction
 
-let os=GetRunningOS()
+let s:os=GetRunningOS()
 
 " dein settings {{{
 if &compatible
@@ -54,9 +54,8 @@ endif
 let g:python3_host_prog = $PYENV_ROOT . '/shims/python3'
 let g:python_host_prog = $PYENV_ROOT . '/shims/python2'
 
-" clip board "
-" xsel for linux, pbcopy for macos
-" set clipboard+=unnamedplus
+" Load settings depend on OS
+execute 'runtime! init.' . s:os . '.vim'
 
 " Required:
 filetype plugin indent on

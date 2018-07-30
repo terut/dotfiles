@@ -9,6 +9,9 @@ case ${OSTYPE} in
     ;;
 esac
 
+## set options
+setopt no_flow_control
+
 ## grep
 export GREP_COLOR="1;36"
 
