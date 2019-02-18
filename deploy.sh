@@ -20,7 +20,7 @@ fi
 
 ## deploy directory
 DEPLOY_TO=$HOME
-#DEPLOY_TO=$PWD
+#DEPLOY_TO=$PWD/tmp
 
 ## deploy minimum files.
 #DOTFILES=('.gemrc' '.irbrc' '.tmux.conf' '.tmux.ext' '.vim' '.vimrc' '.zprofile' '.zshrc' '.zshenv' '.gitconfig' '.config/nvim')
