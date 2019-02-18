@@ -82,14 +82,14 @@ log_info() {
   printf "${ESC}32${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
 }
 
-log_alert() {
+log_warn() {
   local message=$1
-  printf "${ESC}33${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
+  printf "${ESC}33${ESCEND}[WARN] ${message}${COLOR_RESET}\n"
 }
 
 log_error() {
   local message=$1
-  printf "${ESC}31${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
+  printf "${ESC}31${ESCEND}[ERROR] ${message}${COLOR_RESET}\n"
 }
 
 deploy
