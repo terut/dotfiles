@@ -10,36 +10,55 @@ Show the way for deploy following:
 $ cd $HOME
 $ git clone git@github.com:terut/dotfiles.git .dotfiles
 $ cd .dotfiles/
-```
- 
-1. Clone vundle as submodule. 
- 
-```
-$ git submodule init
-$ git submodule update
-$ cd .vim/vundle/
-```
- 
-1. Checkout master branch from (no branch) of vundle.
-  
-```
-$ git branch
-$ git checkout master
-$ git branch
+$ ./deploy.sh
 ```
 
-1. Run `vim` and `:BundleInstall` for vim-plugin install.
- 
-```
-$ vim
-  :BundleInstall
-```
+## Note
 
-1. Setting golang
+1. Setup ssh key.
 
 ```
-$ brew install go
-$ mkdir ~/.go/1.2.2/bin
-$ go get github.com/nsf/gocode
-$ go get github.com/go-sql-driver/mysql
+$ mkdir -m 700 ~/.ssh
+$ ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\" -f ~/.ssh/id_rsa.xxx"
 ```
+1. Setup development directory.
+
+```
+$ mkdir -p ~/Develop/projects/github.com
+$ mkdir -p ~/Develop/go
+```
+
+1. Setup vim.
+
+Install dein.vim to `~/.vim/bundles`.
+See: https://github.com/Shougo/dein.vim
+
+1. Setup nvim.
+
+Install dein.vim to `~/.nvim/bundles`.
+See: https://github.com/Shougo/dein.vim
+
+1. Setup ruby.
+
+Install rbenv to `~/.rbenv`.
+See: https://github.com/rbenv/rbenv
+
+1. Setup node.
+
+Install nodenv to `~/.nodenv`.
+See: https://github.com/nodenv/nodenv
+
+1. Setup golang.
+
+Install goenv to `~/.goenv`.
+See: https://github.com/syndbg/goenv
+
+1. Setup ghq.
+
+Install ghq.
+See: https://github.com/motemen/ghq
+
+1. Setup peco.
+
+Install peco.
+See: https://github.com/peco/peco
