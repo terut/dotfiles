@@ -79,17 +79,17 @@ log_info() {
   # fontcolor;effect;background
   # e.g) 31;4;43, 4;43, 31;43
   # macOS can't use echo -e. echo depends on environment, so use printf
-  printf "${ESC}32${ESCEND}[INFO] ${message}${COLOR_REST}\n"
+  printf "${ESC}32${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
 }
 
 log_alert() {
   local message=$1
-  printf "${ESC}33${ESCEND}[INFO] ${message}${COLOR_REST}\n"
+  printf "${ESC}33${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
 }
 
 log_error() {
   local message=$1
-  printf "${ESC}31${ESCEND}[INFO] ${message}${COLOR_REST}\n"
+  printf "${ESC}31${ESCEND}[INFO] ${message}${COLOR_RESET}\n"
 }
 
 deploy
