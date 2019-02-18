@@ -65,3 +65,15 @@ hook_source = '''
   call denite#custom#map('insert', "<C-s>", '<denite:do_action:split>')
   call denite#custom#map('normal', "s", '<denite:do_action:split>')
 '''
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = 'html'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
