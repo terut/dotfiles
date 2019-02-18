@@ -37,11 +37,20 @@ fi
 cd $(dirname $0)
 
 deploy() {
+  check_ssh_key
+
   local dotfile
   for dotfile in ${DOTFILES[@]}
   do
     create_symlink $dotfile
   done
+}
+
+check_ssh_key() {
+  if [ ! -e "$HOME/.ssh/id_rsa" ]; then
+    log_error "There is no ssh key. Run the following command and add it to GitHub.\n$ ssh-keygen -t rsa -b 4096 -C \"your_email@example.com\" -f ~/.ssh/id_rsa.xxx"
+    exit 1
+  fi
 }
 
 backup() {
