@@ -36,17 +36,10 @@ if [ -e $HOME/.rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
-## pyenv
-if [ -e $HOME/.pyenv ]; then
-	export PYENV_ROOT="$HOME/.pyenv"
-	export PATH="$PYENV_ROOT/bin:$PATH"
-	eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-## ndenv
-if [ -e $HOME/.ndenv ]; then
-  export PATH="$HOME/.ndenv/bin:$PATH"
-  eval "$(ndenv init -)"
+## nodenv
+if [ -e $HOME/.nodenv ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
 fi
 ## pyenv
 if [ -e $HOME/.pyenv ]; then
