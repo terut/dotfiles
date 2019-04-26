@@ -24,6 +24,9 @@ if type direnv >/dev/null 2>&1; then
 fi
 ## golang
 if [ -e $HOME/.goenv ]; then
+  export GOENV_DISABLE_GOPATH=1
+  export GOENV_DISABLE_GOROOT=1
+
   export GOENV_ROOT="$HOME/.goenv"
   export PATH="$GOENV_ROOT/bin:$PATH"
   eval "$(goenv init -)"
