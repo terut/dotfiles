@@ -15,13 +15,17 @@ setopt no_flow_control
 ## grep
 export GREP_COLOR="1;36"
 
-EDITOR="vim"
+EDITOR="nvim"
 
 ## direnv
 #if [ -x "`which direnv 2>/dev/null`" ]; then
 if type direnv >/dev/null 2>&1; then
   eval "$(direnv hook $0)"
 fi
+
+## self-install
+export PATH="$HOME/Develop/bin:$PATH"
+
 ## golang
 if [ -e $HOME/.goenv ]; then
   export GOENV_DISABLE_GOPATH=1

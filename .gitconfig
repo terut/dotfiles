@@ -1,10 +1,9 @@
 [user]
 	name = terut
-	email = terut.dev+github@gmail.com
+	email = 603380+terut@users.noreply.github.com
 [core]
 	editor = nvim
 [ghq]
-	#root = ~/.ghq
-	#root = ~/.go/src
 	root = ~/Develop/projects
-	root = ~/Develop/go/src
+[init]
+	defaultBranch = main
