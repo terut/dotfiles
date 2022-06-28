@@ -28,18 +28,22 @@ local mycolEd=$'\e[m'
 
 typeset -A mycol
 mycol=(
-  'PINK' '38;5;218m'
-  'PURPLE' '38;5;126m'
-  'GREEN' '38;5;107m'
-  'RED' '38;5;168m'
+  'PINK' '218'
+  'PURPLE' '141'
+  'GREEN' '077'
+  'RED' '168'
+  'ORANGE' '209'
+  'YELLOW' '222'
 )
 
 typeset -A mycolbg
 mycolbg=(
-  'PINK' '48;5;218m'
-  'PURPLE' '48;5;126m'
-  'GREEN' '48;5;107m'
-  'RED' '48;5;88m'
+  'PINK' '218'
+  'PURPLE' '141'
+  'GREEN' '077'
+  'RED' '168'
+  'ORANGE' '209'
+  'YELLOW' '222'
 )
 
 autoload colors
@@ -51,40 +55,25 @@ case ${UID} in
     SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
     ;;
 *)
-    #PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-    #PROMPT="%{${mycolSt}${mycol[PURPLE]}%}%/%%%{${mycolEd}%}%{${reset_color}%} "
-    #PROMPT="%{${mycolSt}${mycol[PURPLE]}${mypromptSt}%} [%n@%m: %~] "$'\n'"$%{${mycolEd}${reset_color}%} "
-    PROMPT="%{${mycolSt}%}%(?.%{${mycol[GREEN]}%}\(^o^%)/.%{${mycol[RED]}%}/(^o^%)\)%{${mycolEd}%}%{${mycolSt}${mycol[PURPLE]}%} [%n@%m: %~] %{${mycolEd}%}"$'\n'"%{${mycolSt}${mycol[PURPLE]}%}$%{${mycolEd}${reset_color}%} "
-    #PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-    PROMPT2="%{${mycolSt}${mycol[PURPLE]}%}%_%%%{${mycolEd}%}%{${reset_color}%} "
-    #SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-    SPROMPT="%{${mycolSt}${mycol[PURPLE]}%}%r is correct? [n,y,a,e]:%{${mycolEd}%}%{${reset_color}%} "
-    [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-    ;;
+    # \U1F479 namahage
+    PROMPT="%(?.$(echo -e "\U1F37A").$(echo -e "\U1F344"))%{%F{${mycol[ORANGE]}}%} [%n@%m: %~] "$'\n'"$%{%f${reset_color}%} "
+    PROMPT2="%{%F{${mycol[ORANGE]}}%}%_%% %{%f${reset_color}%} "
+    SPROMPT="%{%F{${mycol[RED]}}%}%r is correct? [n,y,a,e]:%{%f${reset_color}%} "
 esac
 
 # display git branch at right side
-# 
-setopt transient_rprompt
-setopt prompt_subst
+autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' actionformats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{3}|%F{1}%a%F{5}]%f '
-zstyle ':vcs_info:*' formats \
-    '%F{5}(%f%s%F{5})%F{3}-%F{5}[%F{2}%b%F{5}]%f '
-zstyle ':vcs_info:(sv[nk]|bzr):*' branchformat '%b%F{1}:%F{3}%r'
+setopt prompt_subst
 
-zstyle ':vcs_info:*' enable git cvs svn
+zstyle ':vcs_info:*' formats "(%s)-%F{${mycol[GREEN]}}[%b]%f"
+zstyle ':vcs_info:*' actionformats "(%s)-%F{${mycol[YELLOW]}}[%b|%a]%f"
 
-# or use pre_cmd, see man zshcontrib
-vcs_info_wrapper() {
+_vcs_precmd() {
   vcs_info
-  if [ -n "$vcs_info_msg_0_" ]; then
-    echo "%{$fg[grey]%}${vcs_info_msg_0_}%{$reset_color%}$del"
-  fi
 }
-RPROMPT=$'$(vcs_info_wrapper)'
+add-zsh-hook precmd _vcs_precmd
+RPROMPT=$'${vcs_info_msg_0_}'
 
 
 # auto change directory
