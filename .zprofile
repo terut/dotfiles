@@ -13,7 +13,7 @@ esac
 setopt no_flow_control
 
 ## grep
-export GREP_COLOR="1;36"
+export GREP_COLORS="mt=1;36"
 
 EDITOR="nvim"
 
