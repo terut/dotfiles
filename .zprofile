@@ -15,7 +15,7 @@ setopt no_flow_control
 ## grep
 export GREP_COLORS="mt=1;36"
 
-EDITOR="nvim"
+EDITOR="vim"
 
 ## direnv
 #if [ -x "`which direnv 2>/dev/null`" ]; then
@@ -62,7 +62,9 @@ if [ -e $HOME/.qt ]; then
 fi
 ## flutter
 if [ -e $HOME/.flutter ]; then
-  export PATH="$HOME/.flutter/bin:$PATH"
+  export CHROME_EXECUTABLE=/usr/bin/chromium
+  export FLUTTER_VERSION="3.13.9"
+  export PATH="$HOME/.flutter/versions/$FLUTTER_VERSION/bin:$PATH"
 fi
 ## google cloud sdk
 if [ -e $HOME/.google-cloud-sdk ]; then

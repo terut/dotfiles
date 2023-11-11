@@ -2,8 +2,8 @@
 	name = terut
 	email = 603380+terut@users.noreply.github.com
 [core]
-	editor = nvim
+	editor = vim
 [ghq]
-	root = ~/Develop/projects
+	root = ~/Develop/project
 [init]
 	defaultBranch = main
